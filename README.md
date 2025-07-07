@@ -22,19 +22,6 @@ It supports:
 
 ---
 
-## 📂 Project Structure
-
-├── src
-│ ├── controllers
-│ │ └── WhatsAppIAController.js
-│ ├── routes
-│ │ └── Routes.js
-│ └── services
-│ ├── IAServices.js
-│ └── WhatsAppServices.js
-├── server.js
-├── .env
-└── README.md
 
 
 ---
