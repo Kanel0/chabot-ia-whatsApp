@@ -5,7 +5,7 @@ const messageRoutes = require("./src/routes/Routes");
 
 const app = express();
 app.use(bodyParser.json());
-app.use("/api", messageRoutes);
+app.use("/", messageRoutes);
 
 const PORT = process.env.PORT || 8040;
 app.listen(PORT, () => {

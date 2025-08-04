@@ -1,3 +1,4 @@
+require("dotenv").config();
 // File: controllers/WhatsAppIAController.js
 const geminiService = require("../services/IAServices");
 const whatsappService = require("../services/WhatsAppServices");
@@ -5,12 +6,16 @@ const whatsappService = require("../services/WhatsAppServices");
 // Webhook Verification
 exports.verifyWebhook = (req, res) => {
   const verifyToken = process.env.VERIFY_TOKEN;
-  
+  console.log("🔐 Verifying webhook..." , verifyToken);
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
-  
-  if (mode && token === verifyToken) {
+
+  console.log("🔍 Webhook validation params:", { mode, token, challenge });
+  console.log("token === verifyToken ?", token === verifyToken);
+
+  if ( token === verifyToken) {
+
     console.log("✅ Webhook verified");
     res.status(200).send(challenge);
   } else {
@@ -18,6 +23,8 @@ exports.verifyWebhook = (req, res) => {
     res.sendStatus(403);
   }
 };
+
+
 
 // Message Processing
 exports.receiveAndRespond = async (req, res) => {
