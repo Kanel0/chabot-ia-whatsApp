@@ -8,7 +8,7 @@ async function sendMessage(recipient, text) {
     throw new Error("Unauthorized recipient");
   }
 
-  const url = `https://graph.facebook.com/v20.0/${process.env.PHONE_NUMBER_ID}/messages`;
+  const url = `https://graph.facebook.com/v22.0/${process.env.PHONE_NUMBER_ID}/messages`;
   
   const payload = {
     messaging_product: "whatsapp",
